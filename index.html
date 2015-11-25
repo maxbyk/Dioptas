@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Dioptas : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Dioptas</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Dioptas/Dioptas">View on GitHub</a>
+
+          <h1 id="project_title">Dioptas</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Dioptas/Dioptas/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Dioptas/Dioptas/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="dioptas" class="anchor" href="#dioptas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dioptas</h1>
+
+<p>A GUI program for fast analysis of powder X-ray diffraction Images. It provides the capability of calibrating, 
+creating masks, having pattern overlays and showing phase lines.</p>
+
+<h2>
+<a id="maintainer" class="anchor" href="#maintainer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maintainer</h2>
+
+<p>Clemens Prescher (<a href="mailto:clemens.prescher@gmail.com">clemens.prescher@gmail.com</a>)</p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<pre><code>* python 2.7
+* PyQt4
+* numpy
+* scipy
+* pyFAI (https://github.com/kif/pyFAI)
+* fabio (https://github.com/kif/fabio)
+* pyqtgraph (http://www.pyqtgraph.org/) - version 0.9.9
+* scikit-image
+</code></pre>
+
+<p><b>optional:</b></p>
+
+<pre><code>* pyopencl (increasing pyFAI integration speed)
+* fftw3 (increasing pyFAI instegration speed)
+* pymatgen (enables to import cif files as phases)
+</code></pre>
+
+<p>It is known to run on Windows, Mac and Linux. For optimal usage on a windows machine it should be run with 64 bit
+python. When used with 32 bit Dioptas occasionally crashes because of limited memory allocation possibilities.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="executables" class="anchor" href="#executables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executables</h3>
+
+<p>Executable versions for Windows, Mac OsX and Linux (all 64bit) can be downloaded from:</p>
+
+<p><a href="http://millenia.cars.aps.anl.gov/gsecars/data/Dioptas/">http://millenia.cars.aps.anl.gov/gsecars/data/Dioptas/</a></p>
+
+<h3>
+<a id="code" class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h3>
+
+<p>In order to make changes to the source code yourself or always get the latest development versions you need to install
+the required python packages on your machine.</p>
+
+<h4>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows</h4>
+
+<p>The easiest way to obtain almost all required packages is to install WinPython 64 bit or the Anaconda 64 bit python
+distribution. After the installation you need to install pyFAI, fabio and pyqtgraph. Please refer to the links above for 
+their respective installation instructions. 
+For 64 bit compilation of the c-code in pyFAI and fabio the easiest available compilers are either included in 
+Visual Studio (not the express edition), the Windows Software Development Kit version 7.1 
+(<a href="http://msdn.microsoft.com/en-us/windowsserver/bb980924.aspx">http://msdn.microsoft.com/en-us/windowsserver/bb980924.aspx</a>) or the Microsoft Visual C++ Compiler for Python 2.7 
+(<a href="http://www.microsoft.com/en-us/download/details.aspx?id=44266">http://www.microsoft.com/en-us/download/details.aspx?id=44266</a>).</p>
+
+<h4>
+<a id="os-x" class="anchor" href="#os-x" aria-hidden="true"><span class="octicon octicon-link"></span></a>OS X</h4>
+
+<p>Python and the other required packages can be installed by using a package manager like macports or also use a 
+ distribution like anaconda or enthought. All required libraries can be installed using pip package manager.</p>
+
+<h4>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linux</h4>
+
+<p>All packages can be installed using the normal package manager (e.g. apt-get or pip). The .travis.yml file gives a 
+list of detailed instructions to install a small anaconda distribution specifically for usage with Dioptas.</p>
+
+<h2>
+<a id="running-the-program" class="anchor" href="#running-the-program" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the Program</h2>
+
+<p>You can start the program by running the Dioptas.py script in the Dioptas_main folder.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Dioptas maintained by <a href="https://github.com/Dioptas">Dioptas</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
