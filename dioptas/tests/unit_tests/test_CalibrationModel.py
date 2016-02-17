@@ -59,7 +59,7 @@ class CalibrationModelTest(unittest.TestCase):
         points_and_pick_points = [
             [[30, 50], [31, 49]],
             [[30, 50], [34, 46]],
-            [[5, 5],  [3, 3]],
+            [[5, 5], [3, 3]],
             [[298, 298], [299, 299]]
         ]
 
@@ -157,6 +157,44 @@ class CalibrationModelTest(unittest.TestCase):
             self.assertAlmostEqual(ind1, result_ind1, places=3)
             self.assertAlmostEqual(ind2, result_ind2, places=3)
 
+    def test_calculate_error_bars(self):
+        self.calibration_model.load(os.path.join(data_path, 'LaB6_40keV_MarCCD.poni'))
+        self.img_model.load(os.path.join(data_path, 'LaB6_40keV_MarCCD.tif'))
+
+        azi_num = 2000
+        tth_num = 1700
+        rejection_m = 4
+        data = self.calibration_model.integrate_2d(
+            dimensions=(tth_num, azi_num)
+        )
+
+        for i in range(100):
+            std = np.nanstd(data, 0)
+            mean = np.nanmedian(data, 0)
+            upper_limit = [mean + rejection_m * std] * azi_num
+            upper_limit = np.array(upper_limit)
+            lower_limit = [mean - rejection_m * std] * azi_num
+            lower_limit = np.array(lower_limit)
+            rejection_ind = np.where((data > upper_limit) | (data < lower_limit))
+            if len(rejection_ind[0]) == 0:
+                break
+            data[rejection_ind] = np.nan
+
+        print upper_limit.shape
+        print data.shape
+
+        tth = self.calibration_model.cake_tth
+        intensity = np.nanmean(data, 0)
+        std = np.nanstd(data, 0)
+
+        import matplotlib.pyplot as plt
+        plt.errorbar(x = range(len(tth)), y=intensity, yerr=std)
+        # plt.imshow(data)
+        print data[350, :]
+        # plt.hist(data[600, :], 300)
+        print np.median(data[600, :])
+        print np.std(data[600, :])
+        plt.show()
 
 if __name__ == '__main__':
     unittest.main()
